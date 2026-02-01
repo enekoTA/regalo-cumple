@@ -132,7 +132,8 @@ st.markdown(f"""
             I can't even describe how proud I am of the woman you are becoming. 
             Seeing you grow and achieve your goals is the most beautiful thing in my life. 
             You're getting older and wiser, and I'm so lucky to be by your side through it all. 
-            May this year be as incredible as your heart is.
+            I hope you get another beautiful year mi amor.
+            TE AMO BABY / ÉG ELSKA ÞIG
         </p>
     </div>
     """, unsafe_allow_html=True)

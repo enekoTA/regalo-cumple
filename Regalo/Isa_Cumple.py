@@ -86,7 +86,7 @@ if 'intro_done' not in st.session_state:
         st.markdown("<br><br><br><br>", unsafe_allow_html=True)
         st.markdown("""
             <h2 style='text-align: center; font-family: "Poppins"; color: #ff4b4b; animation: fadeIn 2.5s;'>
-                This is for you, my love...
+                This is for you, my bunny...
             </h2>
             """, unsafe_allow_html=True)
         time.sleep(3.5) 

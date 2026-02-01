@@ -7,33 +7,23 @@ import time
 # 1. CONFIGURACIÓN DE PÁGINA
 st.set_page_config(page_title="Our Story ❤️", page_icon="🌹", layout="centered")
 
-# --- PANTALLA DE CARA (INTRO) ---
-# Esto solo se muestra al cargar o refrescar
-if 'intro_done' not in st.session_state:
-    placeholder_intro = st.empty()
-    with placeholder_intro.container():
-        st.markdown("<br><br><br>", unsafe_allow_html=True)
-        st.markdown("""
-            <h2 style='text-align: center; font-family: "Poppins"; color: #ff4b4b; animation: fadeIn 2s;'>
-                This is for you, my love...
-            </h2>
-            """, unsafe_allow_html=True)
-        time.sleep(3) # Tiempo que dura el mensaje inicial
-    placeholder_intro.empty()
-    st.session_state.intro_done = True
-
-# 2. EFECTOS SUTILES
-# Para que salgan "menos copos", usamos un truco de CSS para ocultar la mayoría 
-# o simplemente dejamos que el efecto natural de Streamlit fluya una vez.
-st.snow() 
-
-# 3. CSS AVANZADO (Diseño Glassmorphism)
+# 2. CSS PARA LA TRANSICIÓN Y DISEÑO
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
 
     .main {
         background: linear-gradient(135deg, #fff5f5 0%, #fed7e2 100%);
+    }
+
+    /* Animación de entrada suave */
+    @keyframes fadeIn {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in-content {
+        animation: fadeIn 2s ease-out;
     }
 
     .glass-card {
@@ -64,29 +54,45 @@ st.markdown("""
         box-shadow: 0 4px 15px rgba(255, 75, 75, 0.3);
         text-align: center;
     }
-
-    .timer-label {
-        font-size: 0.8rem;
-        text-transform: uppercase;
-    }
     </style>
     """, unsafe_allow_html=True)
 
-# 4. CONTENIDO PRINCIPAL
+# --- LÓGICA DE LA INTRO ---
+if 'intro_done' not in st.session_state:
+    placeholder_intro = st.empty()
+    with placeholder_intro.container():
+        st.markdown("<br><br><br><br>", unsafe_allow_html=True)
+        # Mensaje de intro con su propia animación
+        st.markdown("""
+            <h2 style='text-align: center; font-family: "Poppins"; color: #ff4b4b; animation: fadeIn 2.5s;'>
+                This is for you, my love...
+            </h2>
+            """, unsafe_allow_html=True)
+        time.sleep(3.5) 
+    
+    st.session_state.intro_done = True
+    placeholder_intro.empty()
+    st.rerun() # Esto fuerza la recarga para mostrar el contenido principal
+
+# --- CONTENIDO PRINCIPAL (Aparece tras la intro) ---
+# Envolvemos todo en un div con la clase 'fade-in-content'
+st.markdown('<div class="fade-in-content">', unsafe_allow_html=True)
+
+st.snow() # Los copos aparecen justo al empezar la transición
+
 st.markdown("<h1>For My Bunny ❤️</h1>", unsafe_allow_html=True)
 
 col1, col2 = st.columns([1, 1])
 
 with col1:
     try:
-        # Ajusta la ruta según tu carpeta en GitHub
         st.image("Regalo/FrontalFoto.jpg", use_container_width=True)
     except:
         st.image("FrontalFoto.jpg", use_container_width=True)
 
 with col2:
     st.markdown("""
-        <div class='glass-card' style='padding: 1.5rem;'>
+        <div class='glass-card' style='padding: 1.5rem; margin-top: 10px;'>
             <p style='font-family: "Poppins"; font-size: 1.1rem; font-style: italic;'>
                 "In you, I've found everything I wasn't even looking for."
             </p>
@@ -94,7 +100,6 @@ with col2:
         </div>
         """, unsafe_allow_html=True)
 
-# 5. DEDICATORIA EN INGLÉS
 st.markdown(f"""
     <div class="glass-card">
         <h2 style='font-family: "Dancing Script"; color: #ff4b4b;'>Our Promise</h2>
@@ -106,11 +111,16 @@ st.markdown(f"""
     </div>
     """, unsafe_allow_html=True)
 
-# 6. CONTADOR DINÁMICO
 st.markdown("<h3 style='text-align: center; font-family: \"Poppins\";'>Infinite seconds together:</h3>", unsafe_allow_html=True)
 
+# ---------------------------------------------------------
+# LÓGICA DEL CONTADOR
+# ---------------------------------------------------------
 FECHA_INICIO = datetime(2025, 8, 1, 0, 0)
-placeholder = st.empty()
+placeholder_timer = st.empty()
+
+# Cerramos el div de la animación de entrada antes del bucle infinito
+st.markdown('</div>', unsafe_allow_html=True)
 
 while True:
     ahora = datetime.now()
@@ -120,12 +130,12 @@ while True:
     horas, rem = divmod(diff.seconds, 3600)
     minutos, segundos = divmod(rem, 60)
     
-    with placeholder.container():
+    with placeholder_timer.container():
         c1, c2, c3, c4 = st.columns(4)
-        c1.markdown(f"<div class='timer-box'><b>{dias}</b><br><span class='timer-label'>Days</span></div>", unsafe_allow_html=True)
-        c2.markdown(f"<div class='timer-box'><b>{horas}</b><br><span class='timer-label'>Hrs</span></div>", unsafe_allow_html=True)
-        c3.markdown(f"<div class='timer-box'><b>{minutos}</b><br><span class='timer-label'>Min</span></div>", unsafe_allow_html=True)
-        c4.markdown(f"<div class='timer-box'><b>{segundos}</b><br><span class='timer-label'>Seg</span></div>", unsafe_allow_html=True)
+        c1.markdown(f"<div class='timer-box'><b>{dias}</b><br><small>DAYS</small></div>", unsafe_allow_html=True)
+        c2.markdown(f"<div class='timer-box'><b>{horas}</b><br><small>HRS</small></div>", unsafe_allow_html=True)
+        c3.markdown(f"<div class='timer-box'><b>{minutos}</b><br><small>MIN</small></div>", unsafe_allow_html=True)
+        c4.markdown(f"<div class='timer-box'><b>{segundos}</b><br><small>SEC</small></div>", unsafe_allow_html=True)
         
         quotes = ["I love you more than yesterday", "You're my favorite place", "Always you", "To a thousand more years"]
         current_quote = quotes[segundos % len(quotes)]

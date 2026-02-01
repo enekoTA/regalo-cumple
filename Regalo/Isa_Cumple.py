@@ -118,7 +118,7 @@ with col2:
     st.markdown("""
         <div class='glass-card' style='padding: 1.5rem; margin-top: 10px;'>
             <p style='font-family: "Poppins"; font-size: 1.1rem; font-style: italic; text-align: center;'>
-                "In you, I've found everything I wasn't even looking for."
+                "My baby is turning 19 and I'm gonna go crazy cuz you are so grown up already my babys"
             </p>
             <p style='text-align: center; font-size: 2rem;'>🎂✨🎁</p>
         </div>
@@ -127,7 +127,7 @@ with col2:
 # SECCIÓN DE CUMPLEAÑOS ACTUALIZADA
 st.markdown(f"""
     <div class="glass-card" style="text-align: center;">
-        <h2 style='font-family: "Dancing Script"; color: #ff4b4b;'>Happy Birthday, my girl!</h2>
+        <h2 style='font-family: "Dancing Script"; color: #ff4b4b;'>Happy Birthday, mi pirata</h2>
         <p style='font-family: "Poppins"; color: #4a4a4a; font-size: 1.1rem;'>
             I can't even describe how proud I am of the woman you are becoming. 
             Seeing you grow and achieve your goals is the most beautiful thing in my life. 

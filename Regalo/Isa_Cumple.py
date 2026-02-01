@@ -5,9 +5,9 @@ from datetime import datetime
 import time
 
 # 1. CONFIGURACIÓN DE PÁGINA
-st.set_page_config(page_title="Our Story ❤️", page_icon="🌹", layout="centered")
+st.set_page_config(page_title="Happy Birthday! ❤️", page_icon="🎂", layout="centered")
 
-# 2. CSS PARA TRANSICIÓN, DISEÑO Y NIEVE PERSONALIZADA (POCOS COPOS)
+# 2. CSS PARA TRANSICIÓN, DISEÑO Y NIEVE PERSONALIZADA
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
@@ -16,7 +16,6 @@ st.markdown("""
         background: linear-gradient(135deg, #fff5f5 0%, #fed7e2 100%);
     }
 
-    /* Animación de entrada suave */
     @keyframes fadeIn {
         0% { opacity: 0; transform: translateY(20px); }
         100% { opacity: 1; transform: translateY(0); }
@@ -26,17 +25,13 @@ st.markdown("""
         animation: fadeIn 2s ease-out;
     }
 
-    /* NIEVE PERSONALIZADA (Solo 10 elementos) */
     .snowflake {
         color: #ffb3b3;
         font-size: 1.2rem;
-        font-family: Arial, sans-serif;
-        text-shadow: 0 0 5px rgba(255,255,255,1);
         position: fixed;
         top: -10%;
         z-index: 9999;
         user-select: none;
-        cursor: default;
         animation: snowflakes-fall 10s linear infinite, snowflakes-shake 3s ease-in-out infinite;
     }
 
@@ -86,7 +81,7 @@ if 'intro_done' not in st.session_state:
         st.markdown("<br><br><br><br>", unsafe_allow_html=True)
         st.markdown("""
             <h2 style='text-align: center; font-family: "Poppins"; color: #ff4b4b; animation: fadeIn 2.5s;'>
-                This is for you, my bunny...
+                This is for you, my love...
             </h2>
             """, unsafe_allow_html=True)
         time.sleep(3.5) 
@@ -95,18 +90,15 @@ if 'intro_done' not in st.session_state:
     placeholder_intro.empty()
     st.rerun()
 
-# --- NIEVE SUTIL (10 Corazones/Copos) ---
+# --- NIEVE SUTIL ---
 st.markdown("""
     <div class="snowflake" style="left:10%; animation-delay:0s;">❤</div>
-    <div class="snowflake" style="left:20%; animation-delay:2s;">❄</div>
-    <div class="snowflake" style="left:30%; animation-delay:4s;">❤</div>
-    <div class="snowflake" style="left:40%; animation-delay:1s;">❄</div>
-    <div class="snowflake" style="left:50%; animation-delay:6s;">❤</div>
-    <div class="snowflake" style="left:60%; animation-delay:3s;">❄</div>
-    <div class="snowflake" style="left:70%; animation-delay:8s;">❤</div>
-    <div class="snowflake" style="left:80%; animation-delay:5s;">❄</div>
-    <div class="snowflake" style="left:90%; animation-delay:7s;">❤</div>
-    <div class="snowflake" style="left:95%; animation-delay:2s;">❄</div>
+    <div class="snowflake" style="left:25%; animation-delay:2s;">❄</div>
+    <div class="snowflake" style="left:40%; animation-delay:4s;">❤</div>
+    <div class="snowflake" style="left:55%; animation-delay:1s;">❄</div>
+    <div class="snowflake" style="left:70%; animation-delay:6s;">❤</div>
+    <div class="snowflake" style="left:85%; animation-delay:3s;">❄</div>
+    <div class="snowflake" style="left:95%; animation-delay:8s;">❤</div>
     """, unsafe_allow_html=True)
 
 # --- CONTENIDO PRINCIPAL ---
@@ -128,17 +120,19 @@ with col2:
             <p style='font-family: "Poppins"; font-size: 1.1rem; font-style: italic; text-align: center;'>
                 "In you, I've found everything I wasn't even looking for."
             </p>
-            <p style='text-align: center; font-size: 2rem;'>💍🌹✨</p>
+            <p style='text-align: center; font-size: 2rem;'>🎂✨🎁</p>
         </div>
         """, unsafe_allow_html=True)
 
+# SECCIÓN DE CUMPLEAÑOS ACTUALIZADA
 st.markdown(f"""
     <div class="glass-card" style="text-align: center;">
-        <h2 style='font-family: "Dancing Script"; color: #ff4b4b;'>Our Promise</h2>
-        <p style='font-family: "Poppins"; color: #4a4a4a;'>
-            Since August 1st, 2025, my world has been brighter. Thank you for being my support, 
-            my favorite laugh, and my home. No matter how much time passes, 
-            I will always choose you over and over again. You are the love of my life.
+        <h2 style='font-family: "Dancing Script"; color: #ff4b4b;'>Happy Birthday, my girl!</h2>
+        <p style='font-family: "Poppins"; color: #4a4a4a; font-size: 1.1rem;'>
+            I can't even describe how proud I am of the woman you are becoming. 
+            Seeing you grow and achieve your goals is the most beautiful thing in my life. 
+            You're getting older and wiser, and I'm so lucky to be by your side through it all. 
+            May this year be as incredible as your heart is.
         </p>
     </div>
     """, unsafe_allow_html=True)
@@ -165,7 +159,7 @@ while True:
         c3.markdown(f"<div class='timer-box'><b>{minutos}</b><br><small>MIN</small></div>", unsafe_allow_html=True)
         c4.markdown(f"<div class='timer-box'><b>{segundos}</b><br><small>SEC</small></div>", unsafe_allow_html=True)
         
-        quotes = ["I love you more than yesterday", "You're my favorite place", "Always you", "To a thousand more years"]
+        quotes = ["I'm so proud of you", "Happy Birthday Love", "Always by your side", "The best is yet to come"]
         current_quote = quotes[segundos % len(quotes)]
         st.markdown(f"<p style='text-align: center; margin-top: 20px; font-family: \"Dancing Script\"; font-size: 1.5rem; color: #ff4b4b;'>{current_quote}</p>", unsafe_allow_html=True)
         

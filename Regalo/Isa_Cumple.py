@@ -131,7 +131,7 @@ st.markdown(f"""
         <p style='font-family: "Poppins"; color: #4a4a4a; font-size: 1.1rem;'>
             I can't even describe how proud I am of the woman you are becoming. 
             Seeing you grow and achieve your goals is the most beautiful thing in my life. 
-            You're getting older and such a beautiful lady, and I'm so lucky to be by your side through it all. 
+            You're getting older and such a beautiful ladys, and I'm so lucky to be by your side through it all. 
             I hope you get another beautiful year mi amor.
             TE AMO BABY / ÉG ELSKA ÞIG
         </p>

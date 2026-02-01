@@ -33,7 +33,7 @@ st.markdown("""
         color: #d32f2f;
     }
     </style>
-    """, unsafe_allow_status=True)
+    """, unsafe_allow_html=True)
 
 # Título
 st.title(f"Para {NOMBRE} con amor ❤️")

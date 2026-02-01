@@ -7,7 +7,7 @@ import time
 # 1. CONFIGURACIÓN DE PÁGINA
 st.set_page_config(page_title="Our Story ❤️", page_icon="🌹", layout="centered")
 
-# 2. CSS PARA LA TRANSICIÓN Y DISEÑO
+# 2. CSS PARA TRANSICIÓN, DISEÑO Y NIEVE PERSONALIZADA (POCOS COPOS)
 st.markdown("""
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
@@ -26,6 +26,30 @@ st.markdown("""
         animation: fadeIn 2s ease-out;
     }
 
+    /* NIEVE PERSONALIZADA (Solo 10 elementos) */
+    .snowflake {
+        color: #ffb3b3;
+        font-size: 1.2rem;
+        font-family: Arial, sans-serif;
+        text-shadow: 0 0 5px rgba(255,255,255,1);
+        position: fixed;
+        top: -10%;
+        z-index: 9999;
+        user-select: none;
+        cursor: default;
+        animation: snowflakes-fall 10s linear infinite, snowflakes-shake 3s ease-in-out infinite;
+    }
+
+    @keyframes snowflakes-fall {
+        0% { top: -10%; }
+        100% { top: 100%; }
+    }
+
+    @keyframes snowflakes-shake {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(80px); }
+    }
+
     .glass-card {
         background: rgba(255, 255, 255, 0.7);
         backdrop-filter: blur(10px);
@@ -34,14 +58,12 @@ st.markdown("""
         border: 1px solid rgba(255, 255, 255, 0.3);
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
         margin-bottom: 2rem;
-        text-align: center;
     }
 
     h1 {
         font-family: 'Dancing Script', cursive;
         color: #ff4b4b;
         font-size: 4rem !important;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
         text-align: center;
     }
 
@@ -51,8 +73,8 @@ st.markdown("""
         border-radius: 15px;
         padding: 15px;
         margin: 5px;
-        box-shadow: 0 4px 15px rgba(255, 75, 75, 0.3);
         text-align: center;
+        box-shadow: 0 4px 15px rgba(255, 75, 75, 0.3);
     }
     </style>
     """, unsafe_allow_html=True)
@@ -62,7 +84,6 @@ if 'intro_done' not in st.session_state:
     placeholder_intro = st.empty()
     with placeholder_intro.container():
         st.markdown("<br><br><br><br>", unsafe_allow_html=True)
-        # Mensaje de intro con su propia animación
         st.markdown("""
             <h2 style='text-align: center; font-family: "Poppins"; color: #ff4b4b; animation: fadeIn 2.5s;'>
                 This is for you, my love...
@@ -72,13 +93,24 @@ if 'intro_done' not in st.session_state:
     
     st.session_state.intro_done = True
     placeholder_intro.empty()
-    st.rerun() # Esto fuerza la recarga para mostrar el contenido principal
+    st.rerun()
 
-# --- CONTENIDO PRINCIPAL (Aparece tras la intro) ---
-# Envolvemos todo en un div con la clase 'fade-in-content'
+# --- NIEVE SUTIL (10 Corazones/Copos) ---
+st.markdown("""
+    <div class="snowflake" style="left:10%; animation-delay:0s;">❤</div>
+    <div class="snowflake" style="left:20%; animation-delay:2s;">❄</div>
+    <div class="snowflake" style="left:30%; animation-delay:4s;">❤</div>
+    <div class="snowflake" style="left:40%; animation-delay:1s;">❄</div>
+    <div class="snowflake" style="left:50%; animation-delay:6s;">❤</div>
+    <div class="snowflake" style="left:60%; animation-delay:3s;">❄</div>
+    <div class="snowflake" style="left:70%; animation-delay:8s;">❤</div>
+    <div class="snowflake" style="left:80%; animation-delay:5s;">❄</div>
+    <div class="snowflake" style="left:90%; animation-delay:7s;">❤</div>
+    <div class="snowflake" style="left:95%; animation-delay:2s;">❄</div>
+    """, unsafe_allow_html=True)
+
+# --- CONTENIDO PRINCIPAL ---
 st.markdown('<div class="fade-in-content">', unsafe_allow_html=True)
-
-st.snow() # Los copos aparecen justo al empezar la transición
 
 st.markdown("<h1>For My Bunny ❤️</h1>", unsafe_allow_html=True)
 
@@ -93,15 +125,15 @@ with col1:
 with col2:
     st.markdown("""
         <div class='glass-card' style='padding: 1.5rem; margin-top: 10px;'>
-            <p style='font-family: "Poppins"; font-size: 1.1rem; font-style: italic;'>
+            <p style='font-family: "Poppins"; font-size: 1.1rem; font-style: italic; text-align: center;'>
                 "In you, I've found everything I wasn't even looking for."
             </p>
-            <p style='font-size: 2rem;'>💍🌹✨</p>
+            <p style='text-align: center; font-size: 2rem;'>💍🌹✨</p>
         </div>
         """, unsafe_allow_html=True)
 
 st.markdown(f"""
-    <div class="glass-card">
+    <div class="glass-card" style="text-align: center;">
         <h2 style='font-family: "Dancing Script"; color: #ff4b4b;'>Our Promise</h2>
         <p style='font-family: "Poppins"; color: #4a4a4a;'>
             Since August 1st, 2025, my world has been brighter. Thank you for being my support, 
@@ -113,13 +145,9 @@ st.markdown(f"""
 
 st.markdown("<h3 style='text-align: center; font-family: \"Poppins\";'>Infinite seconds together:</h3>", unsafe_allow_html=True)
 
-# ---------------------------------------------------------
-# LÓGICA DEL CONTADOR
-# ---------------------------------------------------------
 FECHA_INICIO = datetime(2025, 8, 1, 0, 0)
 placeholder_timer = st.empty()
 
-# Cerramos el div de la animación de entrada antes del bucle infinito
 st.markdown('</div>', unsafe_allow_html=True)
 
 while True:

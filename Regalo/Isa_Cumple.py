@@ -118,7 +118,7 @@ with col2:
     st.markdown("""
         <div class='glass-card' style='padding: 1.5rem; margin-top: 10px;'>
             <p style='font-family: "Poppins"; font-size: 1.1rem; font-style: italic; text-align: center;'>
-                "My baby is turning 19 and I'm gonna go crazy cuz you are so grown up already my babys"
+                My baby is turning 19 and I'm gonna go crazy cuz you are so grown up already my babys
             </p>
             <p style='text-align: center; font-size: 2rem;'>🎂✨🎁</p>
         </div>

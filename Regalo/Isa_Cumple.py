@@ -40,7 +40,7 @@ st.title(f"Para {NOMBRE} con amor ❤️")
 
 # Mostrar Foto
 try:
-    st.image("FrontalFoto.jpg", use_container_width=True, caption="My favorite picture of us")
+    st.image("Regalo/FrontalFoto.jpg", use_container_width=True, caption="My favorite picture of us")
 except:
     st.warning("FrontalFoto.jpg")
 

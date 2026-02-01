@@ -36,7 +36,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # Título
-st.title(f"Para {NOMBRE} con amor ❤️")
+st.title(f"For {NOMBRE} with love ❤️")
 
 # Mostrar Foto
 try:
@@ -48,6 +48,22 @@ st.divider()
 
 # Cálculo de tiempo (Contador dinámico)
 st.subheader("We've been together for:")
+
+# Cambio nuevo
+st.divider() # Una línea sutil de separación
+
+# Puedes usar st.write o st.markdown para darle estilo
+st.markdown("""
+    ### Mi dedicatoria para ti 💌
+    Aquí puedes escribir todo lo que sientas. Por ejemplo:
+    
+    *Gracias por estos meses increíbles a tu lado. Eres la persona que ilumina mis días 
+    y no puedo esperar para seguir sumando segundos, minutos y horas contigo.*
+    
+    **I love you so much**
+    """, unsafe_allow_html=True)
+
+st.divider()
 
 # Esto crea un contenedor que se actualiza
 placeholder = st.empty()
